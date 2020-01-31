@@ -17,6 +17,10 @@
 var imgurl = 'https://1.bp.blogspot.com/-SgT2G_vDGwE/XQjt4RWH1TI/AAAAAAABTNc/0He0eUi8-7QAd0RDvxWGA1MBzphu9hvsgCLcBGAs/s450/animal_chara_computer_penguin.png';
 
 $(function(){
+  var _imgurl = getParam( 'imgurl' );
+  if( _imgurl ){ imgurl = _imgurl; }
+
+  console.log( 'imgurl=' + imgurl );
   $('#img').prop( 'src', imgurl );
 
   $('#range_x').on( 'input change', function(){
@@ -39,33 +43,26 @@ $(function(){
 });
 
 function rotateX( x ){
-  /*
-  $('#range_y').val( 0 );
-  $('#range_z').val( 0 );
-  $('#display_y').html( '0' );
-  $('#display_z').html( '0' );
-  */
   $('#div_x').css( 'transform', 'rotateX('+x+'deg)' );
 }
 
 function rotateY( y ){
-  /*
-  $('#range_x').val( 0 );
-  $('#range_z').val( 0 );
-  $('#display_x').html( '0' );
-  $('#display_z').html( '0' );
-  */
   $('#div_y').css( 'transform', 'rotateY('+y+'deg)' );
 }
 
 function rotateZ( z ){
-  /*
-  $('#range_x').val( 0 );
-  $('#range_y').val( 0 );
-  $('#display_x').html( '0' );
-  $('#display_y').html( '0' );
-  */
   $('#div_z').css( 'transform', 'rotateZ('+z+'deg)' );
+}
+
+function getParam( name, url ){
+  if( !url ){ url = window.location.href; }
+  name = name.replace( /[\[\]]/g, "\\$&" );
+  var regex = new RegExp( "[?&]" + name + "(=([^&#]*)|&|#|$)" ),
+      results = regex.exec( url );
+  if( !results ) return null;
+  if( !results[2] ) return '';
+
+  return decodeURIComponent( results[2].replace( /\+/g, " " ) );
 }
 </script>
 <style>
