@@ -39,33 +39,33 @@ $(function(){
 });
 
 function rotateX( x ){
+  /*
   $('#range_y').val( 0 );
   $('#range_z').val( 0 );
   $('#display_y').html( '0' );
   $('#display_z').html( '0' );
-  $('#div_img').css( 'transform', 'rotateX('+x+'deg)' );
+  */
+  $('#div_x').css( 'transform', 'rotateX('+x+'deg)' );
 }
 
 function rotateY( y ){
+  /*
   $('#range_x').val( 0 );
   $('#range_z').val( 0 );
   $('#display_x').html( '0' );
   $('#display_z').html( '0' );
-  $('#div_img').css( 'transform', 'rotateY('+y+'deg)' );
+  */
+  $('#div_y').css( 'transform', 'rotateY('+y+'deg)' );
 }
 
 function rotateZ( z ){
+  /*
   $('#range_x').val( 0 );
   $('#range_y').val( 0 );
   $('#display_x').html( '0' );
   $('#display_y').html( '0' );
-  $('#div_img').css( 'transform', 'rotateZ('+z+'deg)' );
-}
-
-function rotate3D(){
-  var x = parseInt( $('#range_x').val() );
-  var y = parseInt( $('#range_y').val() );
-  var z = parseInt( $('#range_z').val() );
+  */
+  $('#div_z').css( 'transform', 'rotateZ('+z+'deg)' );
 }
 </script>
 <style>
@@ -79,7 +79,9 @@ html, body {
 </head>
 <body>
   <div id="div_img" style="text-align: center;">
+    <div id="div_x"> <div id="div_y"> <div id="div_z">
     <img id="img" width="40%"/>
+    </div> </div> </div>
   </div>
 
   <div style="text-align: center;">
